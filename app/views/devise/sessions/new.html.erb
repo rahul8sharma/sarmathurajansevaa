@@ -1,0 +1,44 @@
+<section class="blog_area section-padding">
+  <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="section_title text-center mb-55">
+                <h3>लॉग इन</h3>
+                <% if user_signed_in? %>
+                    <h3><li><%= link_to 'Add News', new_news_path %></li></h3>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                  <article class="blog_item">
+                    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                      <div class="field">
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                      </div>
+
+                      <div class="field">
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "current-password" %>
+                      </div>
+
+                      <% if devise_mapping.rememberable? %>
+                        <div class="field">
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                        </div>
+                      <% end %>
+
+                      <div class="actions">
+                        <%= f.submit "Log in" %>
+                      </div>
+                    <% end %>
+                  </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

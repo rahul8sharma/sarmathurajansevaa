@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :contributors
   resources :news
   root to: 'homes#index'
