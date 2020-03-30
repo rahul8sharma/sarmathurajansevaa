@@ -1,0 +1,12 @@
+<section class="blog_area section-padding">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="section_title text-center mb-55">
+              <h3><span>Edit News</span></h3>
+          </div>
+      </div>
+  </div>
+  <%= render 'form', news: @news %>
+  <%= link_to 'Show', @news %> |
+  <%= link_to 'Back', news_index_path %>
+</section>

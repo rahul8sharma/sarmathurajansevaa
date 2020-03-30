@@ -1,0 +1,24 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: sarmathurajanseva_development
+  pool: 5
+  username: tentacle
+  password: tentacle
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: sarmathurajanseva_test
+  pool: 5
+  username: tentacle
+  password: tentacle
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: sarmathurajanseva_production
+  pool: 5
+  username: tentacle
+  password: tentacle

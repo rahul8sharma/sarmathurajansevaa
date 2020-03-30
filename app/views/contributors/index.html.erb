@@ -1,0 +1,40 @@
+<!-- popular_causes_area_start  -->
+<div class="popular_causes_area section_padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section_title text-center mb-55">
+                    <h3>अभियान के बारे में</h3>
+                    <h4>पूरी दुनिया इस वक्त कोरोना महामारी से जूझ रही है। भारत में भी इसका प्रभाव दिख रहा है। लॉक डाउन के कारण लाखों लोग के सामने रोज़ी-रोटी का संकट खड़ा हो गया है। हम पूरे देश में नहीं पहुंच सकते, लेकिन अपने क्षेत्र में पहुंचा जा सकता है। इसीलिए सरमथुरा जन सेवा के नाम से हमने यह वेबसाइट बनाई है ताकि सरमथुरा के वे लोग जो अलग-अलग जगहों पर रहते हैं, अपना सहयोग कोरोना की लड़ाई में दे सकें। ये सहयोग इसीलिए ज़रूरी है क्योंकि क्षेत्र में पत्थर व्यवसाय ही रोजगार का एक मात्र बड़ा साधन है। लॉकडाउन के कारण इस व्यवसाय से जुड़े हजारों लोग बेरोजगार हैं। इनकी आर्थिक स्थिति लगातार ख़राब होती जा रही है। क्षेत्र के इन लोगों को आपकी ज़रूरत है।</h4>
+                    <br>
+                    <h3>सहयोगकर्ता</h3>
+                    <h3><li><%= link_to 'नया सहयोगकर्ता ', new_contributor_path %></li></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="">
+                    <% @contributors.each do |contributor| %>
+                      <div class="single_cause">
+                        <div class="thumb">
+                            <img src="<%= contributor.image_url %>" alt="" style="height: 500px;">
+                        </div>
+                        <div class="causes_content">
+                            <div class="balance d-flex justify-content-between align-items-center">
+                                <span>Donated: Rs <%= contributor.money %> </span>
+                            </div>
+                            <h4><%= contributor.name %></h4>
+                            <p><%= contributor.description %></p>
+                            <%= link_to 'Edit', edit_contributor_path(contributor) %> |
+                            <%= link_to 'Show', contributor %> |
+                            <%= link_to 'Delete', contributor_path(contributor), data: { confirm: 'Are you sure?' }, method: :delete %>
+                        </div>
+                      </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- popular_causes_area_end  -->

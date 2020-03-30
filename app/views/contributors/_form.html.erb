@@ -1,0 +1,42 @@
+<div class="whole-wrap">
+		<div class="container box_1170">
+			<div class="section-top-border">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<%= form_with(model: contributor, local: true) do |form| %>
+              <% if contributor.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(contributor.errors.count, "error") %> prohibited this contributor from being saved:</h2>
+
+                  <ul>
+                  <% contributor.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+							<div class="mt-10">
+                  <%= form.text_field :name, id: :contributor_name, class: 'single-input', placeholder: 'Contributor Name' %>
+							</div>
+              <div class="mt-10">
+								<%= form.number_field :money, id: :contributor_money, class: 'single-input', placeholder: 'Contributor money' %>
+							</div>
+              <div class="mt-10">
+                  <%= form.text_area :description, id: :contributor_description, class: 'single-input', placeholder: 'Contributor Description' %>
+							</div>
+              <div class="mt-10">
+                  <%= form.file_field :image, id: :contributor_image, class: 'single-input', value: "#{@contributor.image_url}" %>
+                  <% if @contributor.image.present? %>
+                    <%= @contributor.image_url %>
+                  <% end %>
+							</div>
+              <div class="mt-10">
+                <%= form.submit value: 'सहयोगी बनाये' %>
+              </div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Align Area -->

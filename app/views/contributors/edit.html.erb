@@ -1,0 +1,12 @@
+<section class="blog_area section-padding">
+  <div class="row justify-content-center">
+      <div class="col-lg-6">
+          <div class="section_title text-center mb-55">
+              <h3><span>एडिट सहयोगकर्ता</span></h3>
+          </div>
+      </div>
+  </div>
+  <%= render 'form', contributor: @contributor %>
+  <%= link_to 'Show', @contributor %> |
+  <%= link_to 'Back', contributors_path %>
+</section>

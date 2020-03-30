@@ -1,0 +1,73 @@
+<header>
+    <div class="header-area ">
+        <div class="header-top_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-6 col-md-12 col-lg-8">
+                        <div class="short_contact_list">
+                            <ul>
+                                <li><a href="#"> <i class="fa fa-phone"></i> +919545225923</a></li>
+                                <li><a href="#"> <i class="fa fa-envelope"></i>sarmathurajanseva@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6 col-lg-4">
+                        <div class="social_media_links d-none d-lg-block">
+                            <a href="#">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-pinterest-p"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sticky-header" class="main-header-area">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-xl-3 col-lg-3">
+                        <div class="logo">
+                            <%= link_to(image_tag("/assets/logo.png"), root_path) %>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9">
+                        <div class="main-menu">
+                            <nav>
+                                <ul id="navigation">
+                                    <li><%= link_to "होम", root_path %></li>
+                                    <li><%= link_to "वीडियो", homes_video_path %></li>
+                                    <li><%= link_to "सहयोगकर्ता", contributors_path %></li>
+                                    <li><%= link_to "न्यूज", news_index_path %></li>
+                                    <li><%= link_to "टीम", homes_team_path %></li>
+                                    <li><a href="#">रिपोर्ट <i class="ti-angle-down"></i></a>
+                                        <ul class="submenu">
+                                            <li><a href="https://www.worldometers.info/coronavirus">विश्व</a></li>
+                                            <li><a href="https://www.covid19india.org/">भारत</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><%= link_to "संपर्क", homes_contact_path %></li>
+                                </ul>
+                            </nav>
+                            <div class="Appointment">
+                                <div class="book_btn d-none d-lg-block">
+                                    <li><%= link_to "दान करें", homes_contact_path %></li>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

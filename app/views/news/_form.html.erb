@@ -1,0 +1,42 @@
+<div class="whole-wrap">
+		<div class="container box_1170">
+			<div class="section-top-border">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<%= form_with(model: news, local: true) do |form| %>
+              <% if news.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(news.errors.count, "error") %> prohibited this news from being saved:</h2>
+
+                  <ul>
+                  <% news.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+							<div class="mt-10">
+                  <%= form.text_field :name, id: :news_name, class: 'single-input', placeholder: 'News Name' %>
+							</div>
+              <div class="mt-10">
+								<%= form.text_field :link, id: :news_link, class: 'single-input', placeholder: 'News Link' %>
+							</div>
+              <div class="mt-10">
+                  <%= form.text_area :description, id: :news_description, class: 'single-input', placeholder: 'News Description' %>
+							</div>
+              <div class="mt-10">
+                  <%= form.file_field :image, id: :news_image, class: 'single-input', value: "#{@news.image_url}" %>
+                  <% if @news.image.present? %>
+                    <%= @news.image_url %>
+                  <% end %>
+							</div>
+              <div class="mt-10">
+                <%= form.submit %>
+              </div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Align Area -->

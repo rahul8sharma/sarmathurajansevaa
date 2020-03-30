@@ -1,0 +1,42 @@
+<section class="blog_area section-padding">
+  <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="section_title text-center mb-55">
+                <h3>न्यूज़</h3>
+                <h3><li><%= link_to 'Add News', new_news_path %></li></h3>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                <% @news.each do |news| %>
+                  <article class="blog_item">
+                        <div class="blog_item_img">
+                            <img class="card-img rounded-0" src="<%= news.image_url %>" alt="" style="height: 302px;">
+                            <a href="#" class="blog_item_date">
+                                <h3><%= news.created_at.strftime("%B %d, %Y") %></h3>
+                            </a>
+                        </div>
+
+                        <div class="blog_details">
+                            <a class="d-inline-block" href="<%= news.link %>%">
+                                <h2><%= news.name %></h2>
+                            </a>
+                            <p><%= news.description %></p>
+                            <ul class="blog-info-link">
+                                <li><a href="<%= news.link %>"><i class="fa fa-user"></i> अधिक पढ़ें</a></li>
+                                <li><%= link_to 'Edit', edit_news_path(news) %></li>
+                                <li><%= link_to 'Show', news %></li>
+                                <li><%= link_to 'Delete', news_path(news), data: { confirm: 'Are you sure?' }, method: :delete %></li>
+                            </ul>
+                        </div>
+                    </article>
+                <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================Blog Area =================-->
