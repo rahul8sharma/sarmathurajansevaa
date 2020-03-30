@@ -1,0 +1,31 @@
+<div class="whole-wrap">
+		<div class="container box_1170">
+			<div class="section-top-border">
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<%= form_with(model: dailyupdate, local: true) do |form| %>
+              <% if dailyupdate.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(dailyupdate.errors.count, "error") %> prohibited this dailyupdate from being saved:</h2>
+
+                  <ul>
+                  <% dailyupdate.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+              <div class="mt-10">
+                  <%= form.text_area :description, id: :dailyupdate_description, class: 'single-input', placeholder: 'Dailyupdate Description', style: 'height: 207px;width: 786px;' %>
+							</div>
+              <div class="mt-10">
+                <%= form.submit value: 'Update' %>
+              </div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Align Area -->
+

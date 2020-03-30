@@ -45,6 +45,7 @@
                                     <li><%= link_to "होम", root_path %></li>
                                     <li><%= link_to "वीडियो", homes_video_path %></li>
                                     <li><%= link_to "सहयोगकर्ता", contributors_path %></li>
+                                    <li><%= link_to "डेली अपडेट", dailyupdates_path %></li>
                                     <li><%= link_to "न्यूज", news_index_path %></li>
                                     <li><%= link_to "टीम", homes_team_path %></li>
                                     <li><a href="#">रिपोर्ट <i class="ti-angle-down"></i></a>
@@ -54,7 +55,11 @@
                                         </ul>
                                     </li>
                                     <li><%= link_to "संपर्क", homes_contact_path %></li>
-                                    <li><%= link_to('लॉग इन', new_user_session_path) %></li>
+                                    <% if user_signed_in? %>
+                                        <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+                                    <% else %>
+                                        <li><%= link_to('लॉग इन', new_user_session_path) %></li>
+                                    <% end %>
                                 </ul>
                             </nav>
                             <div class="Appointment">
