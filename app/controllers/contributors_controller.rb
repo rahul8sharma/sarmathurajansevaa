@@ -5,7 +5,7 @@ class ContributorsController < ApplicationController
   # GET /contributors
   # GET /contributors.json
   def index
-    @contributors = Contributor.all
+    @contributors = Contributor.order('created_at DESC').page(params[:page]).per_page(10)
   end
 
   # GET /contributors/1

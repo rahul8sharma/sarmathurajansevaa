@@ -13,31 +13,45 @@
         <div class="row">
             <div class="col-lg-8 mb-5 mb-lg-0">
                 <div class="blog_left_sidebar">
-                <% @news.each do |news| %>
-                  <article class="blog_item">
-                        <div class="blog_item_img">
-                            <img class="card-img rounded-0" src="<%= news.image_url %>" alt="" style="height: 302px;">
-                            <a href="#" class="blog_item_date">
-                                <h3><%= news.created_at.strftime("%B %d, %Y") %></h3>
-                            </a>
+                    <div class="digg_pagination">
+                        <div class="page_info">
+                            <%= page_entries_info @news %>
                         </div>
+                        <%= will_paginate @news, :container => false %>
+                    </div>
+                    <br>
+                    <% @news.each do |news| %>
+                        <article class="blog_item">
+                            <div class="blog_item_img">
+                                <img class="card-img rounded-0" src="<%= news.image_url %>" alt="" style="height: 302px;">
+                                <a href="#" class="blog_item_date">
+                                    <h3><%= news.created_at.strftime("%B %d, %Y") %></h3>
+                                </a>
+                            </div>
 
-                        <div class="blog_details">
-                            <a class="d-inline-block" href="<%= news.link %>%">
-                                <h2><%= news.name %></h2>
-                            </a>
-                            <p><%= news.description %></p>
-                            <ul class="blog-info-link">
-                                <li><a href="<%= news.link %>"><i class="fa fa-user"></i> अधिक पढ़ें</a></li>
-                                <% if user_signed_in? %>
-                                    <li><%= link_to 'Edit', edit_news_path(news) %></li>
-                                    <li><%= link_to 'Show', news %></li>
-                                    <li><%= link_to 'Delete', news_path(news), data: { confirm: 'Are you sure?' }, method: :delete %></li>
-                                <% end %>
-                            </ul>
+                            <div class="blog_details">
+                                <a class="d-inline-block" href="<%= news.link %>%">
+                                    <h2><%= news.name %></h2>
+                                </a>
+                                <p><%= news.description[0...152] %><%= "..." if news.description.length > 152 %></p>
+                                <ul class="blog-info-link">
+                                    <li><a href="<%= news.link %>"><i class="fa fa-user"></i> अधिक पढ़ें</a></li>
+                                    <% if user_signed_in? %>
+                                        <li><%= link_to 'Edit', edit_news_path(news) %></li>
+                                        <li><%= link_to 'Show', news %></li>
+                                        <li><%= link_to 'Delete', news_path(news), data: { confirm: 'Are you sure?' }, method: :delete %></li>
+                                    <% end %>
+                                </ul>
+                            </div>
+                        </article>
+                    <% end %>
+                    <div class="digg_pagination">
+                        <div class="page_info">
+                            <%= page_entries_info @news %>
                         </div>
-                    </article>
-                <% end %>
+                        <%= will_paginate @news, :container => false %>
+                    </div>
+                    <hr>
                 </div>
             </div>
         </div>
